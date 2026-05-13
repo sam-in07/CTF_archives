@@ -6,3 +6,9 @@ View Hint: Hint_For_Operation_Lazarus
 **"The attacker preferred green over red. Check your channels."**
 
 File link : [Operation Lazarus](https://drive.google.com/file/d/1_G_2QgSO48BDDJzjY6WoxpZPGAEpg098/view?usp=sharing)
+
+flag : 
+
+point : 400
+
+Status : unSolved

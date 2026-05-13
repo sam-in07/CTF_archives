@@ -3,3 +3,7 @@ Sophisticated attackers don't store payloads in one place. They fragment them sp
 **Three encoded fragments are hidden in conhost.exe memory, each preceded by a labeled marker (CTXBLK_A, CTXBLK_B, CTXBLK_C). Decode each and assemble the flag in order.**
 
 Flag : 
+
+point : 300
+
+Status : unolved

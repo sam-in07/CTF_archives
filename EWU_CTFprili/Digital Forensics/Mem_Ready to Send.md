@@ -3,3 +3,7 @@ The final stage of a data theft attack is exfiltration moving stolen data off th
 Locate the staged exfiltration payload hidden inside the memory dump. It is disguised as a system log entry. Decode it to recover the flag.
 
 Flag : 
+
+point : 200
+
+Status : un Solved

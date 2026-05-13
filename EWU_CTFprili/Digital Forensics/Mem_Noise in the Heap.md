@@ -3,3 +3,7 @@ explorer.exe is the beating heart of the Windows desktop always running, always 
 A blob of obfuscated data was found inside explorer.exe memory. The encoding uses a single-byte repeating key. Recover the original content.
 
 Flag :
+
+point : 200
+
+Status : un Solved

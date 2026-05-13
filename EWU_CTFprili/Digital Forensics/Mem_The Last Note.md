@@ -9,3 +9,7 @@ Among the running processes, analysts noticed StikyNot.exe — Windows' sticky n
 Examine the command line of StikyNot. What argument was passed to it?
 
 Flag : 
+
+point : 100
+
+Status : unSolved

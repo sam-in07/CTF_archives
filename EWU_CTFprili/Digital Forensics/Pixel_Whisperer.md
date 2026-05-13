@@ -3,3 +3,7 @@ A suspicious PNG image was found on a hacker's USB drive. Something is hidden in
 Image Url : ![EWU_CTFprili\Cryptography\folders\suspicious.png](https://github.com/sam-in07/CTF_archives/blob/main/EWU_CTFprili/Cryptography/folders/suspicious.png)
 
 flag : 
+
+point : 50
+
+Status : Solved

@@ -4,3 +4,7 @@ File Url : ![EWU_CTFprili\Cryptography\folders\secret.txt](https://github.com/sa
 
 
 Flag : 
+
+point : 50
+
+Status : Solved
