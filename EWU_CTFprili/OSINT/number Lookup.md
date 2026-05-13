@@ -2,3 +2,5 @@ I have a friend in America. I have his number. But I don't have his Facebook ID.
 
 **Flag format: ROBOFEST{username}**
 
+Point : 300
+Status : solved 
