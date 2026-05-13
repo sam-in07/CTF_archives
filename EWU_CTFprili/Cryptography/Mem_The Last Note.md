@@ -7,3 +7,5 @@ Attachment Link: [File](https://drive.google.com/file/d/1NQHwesxegmbpA0_kIV2NYeX
 Among the running processes, analysts noticed StikyNot.exe — Windows' sticky notes application. Nothing unusual about that. Except StikyNot.exe doesn't take command-line arguments. This one did.
 
 Examine the command line of StikyNot. What argument was passed to it?
+
+Flag : 
