@@ -2,4 +2,4 @@ A photo has been recovered during an investigation. Your objective is to determi
 
  **ROBOFEST{university_name_city}**
 
- 
+Flag file :  ![Myimage](https://github.com/sam-in07/CTF_archives/blob/main/EWU_CTFprili/OSINT/folders/Myimage.jpg)
