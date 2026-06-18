@@ -1,0 +1,20 @@
+memo.txt
+─────────────────────────────────────────────────
+INTERNAL SECURITY REPORT — Password Hygiene (Q2) D
+All staff are reminded to update credentials annuallyE
+Passwords must contain symbols, numbers, and a letterE
+Avoid reusing old credentials across systems you pickN
+Two-factor authentication should be enabled by allS
+Recovery codes must be printed and stored physicallyE
+Do not share login details with any other employeeC
+Attempts to bypass security controls are forbiddel
+Phishing emails often arrive disguised as IT mail4
+Suspicious links should be flagged and reported as
+The security team will never request your passwordt
+Report anomalies to the SOC using internal channeL
+Ensure your workstation locks after sixty seconds3
+Multi-factor resets require approval from your lead managertt
+Violations of this policy may result in disciplinary acTioN3
+Review this document and confirm receipt to your manager
+─────────────────────────────────────────────────
+l4stLTN3t3r
