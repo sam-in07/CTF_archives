@@ -1,0 +1,35 @@
+SIGINT INTERCEPT #4471 — Analyst Working Notes (partial)
+
+Picked this transmission up on a monitored frequency last night.
+Recording is ~29 seconds, mono, 44.1kHz. To the ear it's just static --
+no voice, no obvious modulation you'd recognize by listening.
+
+Ran it through a spectrum analyzer out of habit and there it is: this
+isn't noise, or at least not ALL noise. There's a sync/marker tone at
+the very start of the actual transmission (before that it really is
+just empty channel noise) -- looks like it's there to mark "data
+begins now" for whatever's on the receiving end. I make it out to be
+sitting right around 800 Hz, sustained for a good while before
+anything else happens.
+
+After the marker ends, the signal changes character -- starts hopping
+between what looks like exactly two discrete frequencies, in a long
+sequence, sounds like classic binary FSK to me (frequency-shift
+keying -- two tones, one for each bit value, hold each for a fixed
+duration, that's your bitstream). Eyeballing the spectrogram the two
+data tones look like they're sitting around 1.2 kHz and 2.4 kHz, give
+or take -- exact values worth confirming yourself before you trust my
+numbers off a rough visual read.
+
+Didn't have time to work out the exact symbol duration (how long each
+tone lasts before the next one) that's the next thing to nail down,
+since decoding depends entirely on getting your window size right. Get
+that wrong and you'll either skip bits or read the same bit twice.
+
+If this really is FSK carrying a bitstream, packing it 8 bits to a
+byte should turn it into readable text haven't gotten that far
+yet. Didn't determine bit order (MSB or LSB first) either. Standard
+convention is MSB-first for most protocols I've seen, that's my
+starting guess.
+
+Picking this back up after I get some sleep.

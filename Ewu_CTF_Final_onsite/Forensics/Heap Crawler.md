@@ -1,0 +1,3 @@
+A process heap was dumped mid-execution. Somewhere inside it is a chunk holding something interesting but it's encrypted, and the key isn't sitting anywhere obvious. Whoever was debugging this heap left a note about the encryption scheme in one of the other chunks, but that note only makes sense once you know exactly where it sits in the allocation sequence, which means you have to walk the heap properly, chunk by chunk, from the very beginning.
+
+Walk the heap. Find what's hidden in it.

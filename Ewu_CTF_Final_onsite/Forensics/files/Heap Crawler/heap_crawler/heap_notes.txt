@@ -1,0 +1,29 @@
+Heap Reversing Notes
+
+This is a simplified malloc-style heap, modeled loosely on real glibc
+chunk layout for the purposes of this exercise:
+
+  offset +0   prev_size   8 bytes, little-endian (mostly unused here)
+  offset +8   size        8 bytes, little-endian
+  offset +16  payload     starts here
+
+IMPORTANT: like real glibc, the low 3 bits of the `size` field are
+flag bits, NOT part of the actual size. You MUST mask them off
+(size & ~0x7) before using the value to find the next chunk. Every
+chunk in this dump has at least the PREV_INUSE bit set, and some have
+additional bits set too -- if your walk "mostly works but drifts
+wrong partway through," this is almost certainly why.
+
+Once you mask correctly: next_chunk_offset = current_offset + true_size.
+
+The first byte of every chunk's payload is a tag:
+  0x01 = ordinary allocation, not interesting
+  0x02 = a debug note left behind in the heap -- read it, it's plain text
+  0x03 = something encrypted
+
+Found exactly one 0x02 chunk and exactly one 0x03 chunk while spot-
+checking a few offsets by hand. Didn't have time to walk the whole
+heap from the start to confirm their exact positions in sequence --
+that's the part that actually matters, since whatever the debug note
+says is keyed off "how many chunks in" something is, and that's only
+meaningful once you've walked there yourself, not guessed at it.
