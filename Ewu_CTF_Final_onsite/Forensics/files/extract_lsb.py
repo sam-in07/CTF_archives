@@ -1,10 +1,3 @@
-A small image was found on a suspect's machine. Nothing about it looks unusual at a glance but "nothing unusual at a glance" is exactly the point of hiding data in an image. . Find it.x
-
-Ans :
-
-Solver : [sam_in_Ironside](https://github.com/sam-in07)
-
-````python
 import os
 from PIL import Image
 
@@ -100,21 +93,3 @@ def analyze_png(img_path):
 
 if __name__ == "__main__":
     analyze_png(r"D:\CTF_archives\Ewu_CTF_Final_onsite\Forensics\files\cover.png")
-
-
-````
-The flag was hidden using Least Significant Bit (LSB) steganography embedded in the Red channel (MSB-first bit ordering) of the pixels. The flag is indeed:
-
-## ROBOFEST{lsb_1s_3asy_t0_f1nd}
-
-### Summary of Work:
-
-  1. Listed the workspace directory and identified the target image cover.png.
-  2. Installed  pillow  to programmatically inspect image pixels.
-  3. Created a steganography extraction script extract_lsb.py to decode and extract LSB bits across different channels.
-  4. Confirmed the flag value from the output of the Red channel's LSB extraction.
-                                                                                        
-
-
-
-ROBOFEST{lsb_1s_3asy_t0_f1nd}

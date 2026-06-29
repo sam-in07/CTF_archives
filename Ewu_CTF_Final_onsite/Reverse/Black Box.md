@@ -2,6 +2,7 @@ The event recorder, the module every unit in the fleet carries to log what it di
 
 soln : 
 
+Solver : [sam_in_Ironside](https://github.com/sam-in07)
 
 ```java
 
@@ -39,25 +40,100 @@ public class Check {
 
 
 
-  The Java code in  Check.java  validates a user-provided flag of length 40 against a target byte array  var1 .
 
-  #### Verification Algorithm
+## Challenge Overview
 
-  For each index  var5  from 0 to 39:
+The Java program verifies whether the user enters the correct flag. Instead of storing the flag directly, it stores an array of transformed byte values and checks each character using bitwise operations.
 
-  1.  var6  is computed using bitwise operations and arithmetic precedence:
-   int var6 = var1[var5] ^ 66 + var5 & 255; 
-  (Note: In Java, arithmetic  +  evaluates first, followed by bitwise AND  & , and finally bitwise XOR  ^ ).
-  
-  2. The expected character code is obtained by performing an 8-bit right rotation on  var6  by 3 bits:
-   r8(var6, 3)  which computes  (var6 >>> 3 | var6 << 5) & 255 .
+Our goal is to reverse the transformation to recover the original flag.
 
-  #### Key Recovery
+---
 
-  By directly executing the forward transformation on each element of  var1 , we reconstruct the original input string character by
-  character.
-  ──────
-  ### Recovered Secret / Flag
+## Step 1: Analyze the Verification Code
 
+The program stores the following integer array:
 
- ROBOFEST{j4v4_byt3c0d3_d3comp1l3s_cl34n}  
+```java
+int[] var1 = {
+208, 57, 86, 63, 116, 109, 210, 235, 145, 24,
+237, 254, 239, 181, 67, 154, 241, 202, 79, 212,
+117, 206, 162, 122, 195, 64, 39, 54, 221, 214,
+3, 248, 249, 153, 127, 6, 255, 198, 27, 130
+};
+```
+
+The program expects the user to enter exactly **40 characters**.
+
+For each character, it performs the following check:
+
+```java
+int var6 = var1[i] ^ ((66 + i) & 255);
+
+if (r8(var6, 3) != input.charAt(i)) {
+    return false;
+}
+```
+
+The rotation function is:
+
+```java
+static int r8(int value, int shift) {
+    shift &= 7;
+    return (value >>> shift | value << (8 - shift)) & 255;
+}
+```
+
+This performs an **8-bit right rotation by 3 bits**.
+
+---
+
+## Step 2: Understand the Transformation
+
+For every position `i`, the program:
+
+1. Takes the stored byte `var1[i]`.
+2. XORs it with `(66 + i)`.
+3. Rotates the result right by 3 bits.
+4. Compares the final value with the user's input character.
+
+Mathematically:
+
+```
+input[i] = RotateRight8(var1[i] ^ (66 + i), 3)
+```
+
+Since the program directly computes the expected character, we can simply apply the same transformation to every value in the array to recover the original input.
+
+---
+
+## Step 3: Recover the Flag
+
+Running the transformation on each element of `var1` produces the following string:
+
+```
+ROBOFEST{j4v4_byt3c0d3_d3comp1l3s_cl34n}
+```
+
+---
+
+## Final Flag
+
+```text
+ROBOFEST{j4v4_byt3c0d3_d3comp1l3s_cl34n}
+```
+
+---
+
+## Conclusion
+
+This challenge relied on understanding Java operator precedence and simple bitwise operations.
+
+The important observations were:
+
+* `+` is evaluated before `&`, and `&` is evaluated before `^`.
+* The program XORs each stored byte with `(66 + index)`.
+* It then performs an 8-bit right rotation by 3 bits.
+* Executing the same transformation on every array element directly reconstructs the expected input.
+
+Once these operations were understood, recovering the flag was straightforward.
+
